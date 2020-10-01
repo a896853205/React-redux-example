@@ -1,3 +1,5 @@
+import { handleActions } from 'redux-actions';
+
 import { actionTypes } from './actions';
 
 const initialState = {
@@ -7,9 +9,9 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, { type, articles }) => {
-  switch (type) {
-    case actionTypes.ADD_ARTICLE:
+export default handleActions(
+  {
+    [actionTypes.ADD_ARTICLE]: (state, { payload: { articles } }) => {
       const newArticle = {
         id: Math.random(),
         title: articles.title,
@@ -19,9 +21,7 @@ const reducer = (state = initialState, { type, articles }) => {
         ...state,
         articles: state.articles.concat(newArticle),
       };
-    default:
-      return { ...state };
-  }
-};
-
-export default reducer;
+    },
+  },
+  initialState
+);
