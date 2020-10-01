@@ -3,19 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Article from './components/Article/Article';
 import AddArticle from './components/AddArticle/AddArticle';
-import * as actionTypes from './actions';
+import { addArticle } from './actions';
 
 const Articles = () => {
   const dispatch = useDispatch();
 
   const saveArticle = articles => {
     // 逻辑代码稍后更新
-    dispatch({
-      type: actionTypes.ADD_ARTICLE,
-      payload: {
-        articles,
-      },
-    });
+    dispatch(addArticle(articles));
   };
 
   let articles = useSelector(state => state.article.articles);

@@ -1,4 +1,4 @@
-import * as actionTypes from './actions';
+import { actionTypes } from './actions';
 
 const initialState = {
   articles: [
@@ -7,13 +7,13 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, { type, payload }) => {
+const reducer = (state = initialState, { type, articles }) => {
   switch (type) {
     case actionTypes.ADD_ARTICLE:
       const newArticle = {
         id: Math.random(),
-        title: payload.articles.title,
-        body: payload.articles.body,
+        title: articles.title,
+        body: articles.body,
       };
       return {
         ...state,
