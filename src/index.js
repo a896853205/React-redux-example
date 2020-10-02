@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 
 import reducer from './redux/reducers';
-import rootSaga from './redux/saga';
+import rootSaga from './redux/sagas';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
